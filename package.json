@@ -31,7 +31,7 @@
     "start": "rollup -c -w",
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "lint": "eslint --ext .ts,.tsx src example",
+    "lint": "eslint src/**",
     "commit": "git-cz"
   },
   "peerDependencies": {
@@ -60,7 +60,6 @@
     "babel-loader": "^8.1.0",
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "3.2.0",
-    "eslint": "6.x",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-prettier": "^3.1.4",
@@ -71,7 +70,7 @@
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.1",
     "rollup": "^2.26.4",
     "rollup-plugin-filesize": "^9.0.2",
     "rollup-plugin-peer-deps-external": "^2.2.3",
