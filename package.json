@@ -25,6 +25,8 @@
     "react": "^16.9.0"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^10.4.9",
     "@testing-library/react-hooks": "^3.4.1",
@@ -56,6 +58,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
     "react-test-renderer": "^16.9.0",
+    "semantic-release": "^17.1.1",
     "typescript": "^3.7.5"
   },
   "files": [
