@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 name: Publish NPM Package
+=======
+name: Publish Github Package
+>>>>>>> a522b458e0968ce6066a4f8572752b605a173210
 
 on:
   push:
