@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/DawChihLiou/react-use-pip/compare/v1.0.0...v1.0.1) (2020-08-28)
+
+
+### Bug Fixes
+
+* **ci.yml:** install packages and try to fix workflow ([8d7498c](https://github.com/DawChihLiou/react-use-pip/commit/8d7498c1247177e156b8340130fbe5187a9f970b))
+
 # 1.0.0 (2020-08-28)
 
 
