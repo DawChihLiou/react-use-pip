@@ -4,13 +4,13 @@ import isPictureInPictureSupported from './libs/is-picture-in-picture-supported'
 import {
   ExtendedDocument,
   ExtendedHTMLVideoElement,
-  usePictureInPictureParams,
+  usePictureInPictureOptions,
   usePictureInPictureReturnType,
   VideoRefType,
 } from './types'
 
 export default function usePictureInPicture(
-  config?: usePictureInPictureParams
+  config?: usePictureInPictureOptions
 ): usePictureInPictureReturnType {
   const videoRef = useRef<ExtendedHTMLVideoElement>(null)
   const [isPictureInPictureActive, togglePictureInPicture] = useState<boolean>(
@@ -92,8 +92,8 @@ export default function usePictureInPicture(
 async function handlePictureInPicture(
   video: VideoRefType,
   isActive: boolean,
-  onRequestPictureInPictureError: usePictureInPictureParams['onRequestPictureInPictureError'],
-  onExitPictureInPictureError: usePictureInPictureParams['onExitPictureInPictureError']
+  onRequestPictureInPictureError: usePictureInPictureOptions['onRequestPictureInPictureError'],
+  onExitPictureInPictureError: usePictureInPictureOptions['onExitPictureInPictureError']
 ): Promise<void> {
   if (video.current === null) {
     throw new Error(

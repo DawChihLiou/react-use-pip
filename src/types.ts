@@ -39,7 +39,7 @@ export interface ExtendedDocumentOrShadowRoot extends DocumentOrShadowRoot {
 
 export type VideoRefType = MutableRefObject<ExtendedHTMLVideoElement | null>
 
-export interface usePictureInPictureParams {
+export interface usePictureInPictureOptions {
   onEnterPictureInPicture?: ExtendedHTMLVideoElement['onenterpictureinpicture']
   onLeavePictureInPicture?: ExtendedHTMLVideoElement['onleavepictureinpicture']
   onRequestPictureInPictureError?: (error: any) => void

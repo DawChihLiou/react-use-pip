@@ -10,20 +10,61 @@
 npm install --save react-use-pip
 ```
 
-## Usage
+```bash
+yarn add react-us-pip
+```
+
+## Quick Start
 
 ```tsx
-import React, { Component } from 'react'
+import usePictureInPicture from 'react-use-pip'
 
-import MyComponent from 'react-use-pip'
-import 'react-use-pip/dist/index.css'
+function VideoPlayer() {
+  const {
+    videoRef,
+    isPictureInPictureActive,
+    togglePictureInPicture,
+  } = usePictureInPicture()
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+  return (
+    <div className="App">
+      <video ref={videoRef} autoPlay muted controls loop width="100%">
+        <source src="video-sample.mp4" />
+      </video>
+      <button onClick={() => togglePictureInPicture(!isPictureInPictureActive)}>
+        {isPictureInPictureActive ? 'Disable' : 'Enable'} Picture in Picture
+      </button>
+    </div>
+  )
 }
 ```
+
+## API
+
+```ts
+const {
+  videoRef,
+  isPictureInPictureActive,
+  togglePictureInPicture,
+} = usePictureInPicture(options)
+```
+
+### Parameters
+
+- `options`: (optional) an `object` that provides the hook a set of callback functions.
+
+### Return Values
+
+- `videoRef`: Ref to pass in to video element as a prop
+- `isPictureInPictureActive = false`: `boolean` that signals whether picture in picture mode is active or inactive
+- `togglePictureInPicture(isActive: boolean) => void`: function that provide you toggle picture in picture mode
+
+### Options
+
+- `onEnterPictureInPicture(event: Event) => void`: (optional) callback function when entering picture in picture mode
+- `onLeavePictureInPicture(event: Event) => void`: (optional) callback function when leaving picture in picture mode
+- `onRequestPictureInPictureError(error: any) => void`: (optional) callback function when there is an error requesting picture in picture
+- `onExitPictureInPictureError(error: any) => void`: (optional) callback function when there is an error exiting picture in picture
 
 ## License
 
