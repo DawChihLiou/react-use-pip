@@ -1,5 +1,5 @@
 import React from 'react'
-import { usePictureInPicture } from 'react-use-pip'
+import usePictureInPicture from 'react-use-pip'
 
 const App = () => {
   const {

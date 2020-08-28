@@ -9,16 +9,20 @@ import {
   VideoRefType,
 } from './types'
 
-export function usePictureInPicture({
-  onEnterPictureInPicture,
-  onLeavePictureInPicture,
-  onRequestPictureInPictureError,
-  onExitPictureInPictureError,
-}: usePictureInPictureParams): usePictureInPictureReturnType {
+export default function usePictureInPicture(
+  config?: usePictureInPictureParams
+): usePictureInPictureReturnType {
   const videoRef = useRef<ExtendedHTMLVideoElement>(null)
   const [isPictureInPictureActive, togglePictureInPicture] = useState<boolean>(
     false
   )
+
+  const {
+    onEnterPictureInPicture,
+    onLeavePictureInPicture,
+    onRequestPictureInPictureError,
+    onExitPictureInPictureError,
+  } = config || {}
 
   useEffect(() => {
     handlePictureInPicture(
