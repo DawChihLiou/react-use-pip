@@ -11,6 +11,10 @@
   "engines": {
     "node": ">=10"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
+  },
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
@@ -65,7 +69,10 @@
     "typescript": "^3.7.5"
   },
   "files": [
-    "dist"
+    "dist",
+    "CHANGELOG.md",
+    "package.json",
+    "yarn.lock"
   ],
   "config": {
     "commitizen": {
