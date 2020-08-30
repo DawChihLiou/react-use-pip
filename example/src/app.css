@@ -35,6 +35,10 @@
   justify-content: center;
 }
 
+.logo {
+  width: 32px;
+}
+
 .control-button {
   margin: 0 auto;
   padding: 24px 48px;

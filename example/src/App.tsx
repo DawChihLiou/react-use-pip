@@ -36,7 +36,7 @@ const App = () => {
         <a href="/">
           <img
             className="logo"
-            src={`${process.env.PUBLIC_URL}/logo-light-32x32.png`}
+            src={`${process.env.PUBLIC_URL}/logo-light-64x64.png`}
             alt="react-use-pip-logo"
           />
         </a>
