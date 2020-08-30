@@ -15,9 +15,13 @@ React hook for Picture in Picture
 
 ## Install
 
+In your project directory, run
+
 ```bash
 npm install --save react-use-pip
 ```
+
+Or with Yarn
 
 ```bash
 yarn add react-us-pip
@@ -29,11 +33,11 @@ yarn add react-us-pip
 import usePictureInPicture from 'react-use-pip'
 
 function VideoPlayer() {
+  const videoRef = useRef(null)
   const {
-    videoRef,
     isPictureInPictureActive,
     togglePictureInPicture,
-  } = usePictureInPicture()
+  } = usePictureInPicture(videoRef)
 
   return (
     <div className="App">
@@ -52,23 +56,22 @@ function VideoPlayer() {
 
 ```ts
 const {
-  videoRef,
   isPictureInPictureActive,
   togglePictureInPicture,
-} = usePictureInPicture(options)
+} = usePictureInPicture(videoRef, options)
 ```
 
 ### Parameters
 
+- `videoRef`: Ref to pass in to video element as a prop
 - `options`: (optional) an `object` that provides the hook a set of callback functions.
 
 ### Return Values
 
-- `videoRef`: Ref to pass in to video element as a prop
 - `isPictureInPictureActive = false`: `boolean` that signals whether picture in picture mode is active or inactive
 - `togglePictureInPicture(isActive: boolean) => void`: function that provide you toggle picture in picture mode
 
-### Options
+### Options (Optional)
 
 - `onEnterPictureInPicture(event: Event) => void`: (optional) callback function when entering picture in picture mode
 - `onLeavePictureInPicture(event: Event) => void`: (optional) callback function when leaving picture in picture mode
