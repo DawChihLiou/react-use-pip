@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/DawChihLiou/react-use-pip/compare/v1.0.0...v1.0.1) (2020-08-30)
+
+
+### Bug Fixes
+
+* **app.tsx:** fix public url ([9ae6287](https://github.com/DawChihLiou/react-use-pip/commit/9ae6287aaf04391fd37c8d793b800f26467c0a69))
+
 # 1.0.0 (2020-08-29)
 
 
