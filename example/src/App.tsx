@@ -1,9 +1,16 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import ReactMarkdown from 'react-markdown'
 import usePictureInPicture from 'react-use-pip'
 import CodeBlock from './CodeBlock'
 import { VscGithub } from 'react-icons/vsc'
 import './app.css'
+import { ExtendedHTMLVideoElement } from '../../dist/types'
 
 async function fetchMarkdown(
   saveMarkdown: Dispatch<SetStateAction<string | undefined>>
@@ -14,11 +21,11 @@ async function fetchMarkdown(
 }
 
 const App = () => {
+  const videoRef = useRef<ExtendedHTMLVideoElement | null>(null)
   const {
-    videoRef,
     isPictureInPictureActive,
     togglePictureInPicture,
-  } = usePictureInPicture({
+  } = usePictureInPicture(videoRef, {
     onEnterPictureInPicture: (e) => console.log('enter picture in picture', e),
     onLeavePictureInPicture: (e) => console.log('leave picture in picture', e),
   })

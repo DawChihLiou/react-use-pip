@@ -47,7 +47,6 @@ export interface usePictureInPictureOptions {
 }
 
 export interface usePictureInPictureReturnType {
-  videoRef: VideoRefType
   isPictureInPictureActive: boolean
   togglePictureInPicture: Dispatch<SetStateAction<boolean>>
 }

@@ -1,18 +1,19 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import isPictureInPictureDisabled from './libs/is-picture-in-picture-disabled'
-import isPictureInPictureSupported from './libs/is-picture-in-picture-supported'
+import isPictureInPictureSupported, {
+  isWebkitPictureInPictureSupported,
+} from './libs/is-picture-in-picture-supported'
 import {
   ExtendedDocument,
-  ExtendedHTMLVideoElement,
   usePictureInPictureOptions,
   usePictureInPictureReturnType,
   VideoRefType,
 } from './types'
 
 export default function usePictureInPicture(
-  config?: usePictureInPictureOptions
+  videoRef: VideoRefType,
+  options?: usePictureInPictureOptions
 ): usePictureInPictureReturnType {
-  const videoRef = useRef<ExtendedHTMLVideoElement>(null)
   const [isPictureInPictureActive, togglePictureInPicture] = useState<boolean>(
     false
   )
@@ -22,7 +23,7 @@ export default function usePictureInPicture(
     onLeavePictureInPicture,
     onRequestPictureInPictureError,
     onExitPictureInPictureError,
-  } = config || {}
+  } = options || {}
 
   useEffect(() => {
     handlePictureInPicture(
@@ -86,7 +87,7 @@ export default function usePictureInPicture(
     }
   }, [])
 
-  return { videoRef, isPictureInPictureActive, togglePictureInPicture }
+  return { isPictureInPictureActive, togglePictureInPicture }
 }
 
 async function handlePictureInPicture(
@@ -96,28 +97,41 @@ async function handlePictureInPicture(
   onExitPictureInPictureError: usePictureInPictureOptions['onExitPictureInPictureError']
 ): Promise<void> {
   if (video.current === null) {
-    throw new Error(
-      'vieoRef is not referencing to a video element. Please pass the videoRef as ref in a video element.'
+    console.warn(
+      'vieoRef is not referencing to an element. Please pass the videoRef as ref in a video element.'
     )
+    return
   }
   if (video.current.nodeName.toLocaleLowerCase() !== 'video') {
-    throw new Error(
+    console.warn(
       `videoRef is currently referencing to a ${video.current.nodeName} element. Plese pass it as ref in a video element.`
     )
+    return
+  }
+  /**
+   * Safari^9.0 has a different pip api. "isWebkitPictureInPictureSupported" is to support Safari.
+   */
+  if (
+    !isPictureInPictureSupported() &&
+    !isWebkitPictureInPictureSupported(video.current)
+  ) {
+    console.warn('Picture in picture is not supported in your browser.')
   }
 
-  if (!isPictureInPictureSupported()) {
-    console.error('Picture in picture is not supported in your browser.')
-  }
   if (isPictureInPictureDisabled(video.current)) {
-    console.error(
+    console.warn(
       'Picture in picture is disabled in your browser. If you want to activate the feature, please enable it in the browser settings.'
     )
   }
 
   if (isActive) {
     try {
-      await video.current.requestPictureInPicture()
+      if (isWebkitPictureInPictureSupported(video.current)) {
+        // Safari^9.0 support
+        ;(video.current as any).webkitSetPresentationMode('picture-in-picture')
+      } else {
+        await video.current.requestPictureInPicture()
+      }
     } catch (error) {
       if (
         onRequestPictureInPictureError &&
@@ -130,7 +144,12 @@ async function handlePictureInPicture(
   }
   if (!isActive && (document as ExtendedDocument).pictureInPictureElement) {
     try {
-      await (document as ExtendedDocument).exitPictureInPicture()
+      if (isWebkitPictureInPictureSupported(video.current)) {
+        // Safari^9.0 support
+        ;(video.current as any).webkitSetPresentationMode('inline')
+      } else {
+        await (document as ExtendedDocument).exitPictureInPicture()
+      }
     } catch (error) {
       if (
         onExitPictureInPictureError &&
