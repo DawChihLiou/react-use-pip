@@ -14,16 +14,21 @@ export default function usePictureInPicture(
   videoRef: VideoRefType,
   options?: usePictureInPictureOptions
 ): usePictureInPictureReturnType {
-  const [isPictureInPictureActive, togglePictureInPicture] = useState<boolean>(
-    false
-  )
-
   const {
     onEnterPictureInPicture,
     onLeavePictureInPicture,
     onRequestPictureInPictureError,
     onExitPictureInPictureError,
   } = options || {}
+
+  const [isPictureInPictureActive, togglePictureInPicture] = useState<boolean>(
+    false
+  )
+
+  const [
+    isPictureInPictureAvailable,
+    setIsPictureInPictureAvailable,
+  ] = useState<boolean>(false)
 
   useEffect(() => {
     handlePictureInPicture(
@@ -43,6 +48,13 @@ export default function usePictureInPicture(
     if (videoRef.current === null) {
       return
     }
+
+    setIsPictureInPictureAvailable(
+      (isWebkitPictureInPictureSupported(videoRef.current) ||
+        isPictureInPictureSupported()) &&
+        !isPictureInPictureDisabled(videoRef.current)
+    )
+
     if (
       onEnterPictureInPicture &&
       typeof onEnterPictureInPicture === 'function'
@@ -87,7 +99,11 @@ export default function usePictureInPicture(
     }
   }, [])
 
-  return { isPictureInPictureActive, togglePictureInPicture }
+  return {
+    isPictureInPictureActive,
+    isPictureInPictureAvailable,
+    togglePictureInPicture,
+  }
 }
 
 async function handlePictureInPicture(

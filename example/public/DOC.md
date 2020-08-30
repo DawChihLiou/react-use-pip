@@ -36,6 +36,7 @@ function VideoPlayer() {
   const videoRef = useRef(null)
   const {
     isPictureInPictureActive,
+    isPictureInPictureAvailable,
     togglePictureInPicture,
   } = usePictureInPicture(videoRef)
 
@@ -44,9 +45,13 @@ function VideoPlayer() {
       <video ref={videoRef} autoPlay muted controls loop width="100%">
         <source src="video-sample.mp4" />
       </video>
-      <button onClick={() => togglePictureInPicture(!isPictureInPictureActive)}>
-        {isPictureInPictureActive ? 'Disable' : 'Enable'} Picture in Picture
-      </button>
+      {isPictureInPictureAvailable && (
+        <button
+          onClick={() => togglePictureInPicture(!isPictureInPictureActive)}
+        >
+          {isPictureInPictureActive ? 'Disable' : 'Enable'} Picture in Picture
+        </button>
+      )}
     </div>
   )
 }
@@ -57,6 +62,7 @@ function VideoPlayer() {
 ```ts
 const {
   isPictureInPictureActive,
+  isPictureInPictureAvailable,
   togglePictureInPicture,
 } = usePictureInPicture(videoRef, options)
 ```
@@ -69,6 +75,7 @@ const {
 ### Return Values
 
 - `isPictureInPictureActive = false`: `boolean` that signals whether picture in picture mode is active or inactive
+- `isPictureInPictureAvailable`: `boolean` that signals whether picture in picture mode is supported and enabled
 - `togglePictureInPicture(isActive: boolean) => void`: function that provide you toggle picture in picture mode
 
 ### Options (Optional)

@@ -48,5 +48,6 @@ export interface usePictureInPictureOptions {
 
 export interface usePictureInPictureReturnType {
   isPictureInPictureActive: boolean
+  isPictureInPictureAvailable: boolean
   togglePictureInPicture: Dispatch<SetStateAction<boolean>>
 }

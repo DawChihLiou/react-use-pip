@@ -24,15 +24,15 @@ const App = () => {
   const videoRef = useRef<ExtendedHTMLVideoElement | null>(null)
   const {
     isPictureInPictureActive,
+    isPictureInPictureAvailable,
     togglePictureInPicture,
   } = usePictureInPicture(videoRef, {
     onEnterPictureInPicture: (e) => console.log('enter picture in picture', e),
     onLeavePictureInPicture: (e) => console.log('leave picture in picture', e),
   })
-
   const handleClick = () => togglePictureInPicture(!isPictureInPictureActive)
-
   const [markdown, setMarkdown] = useState<string>()
+
   useEffect(() => {
     fetchMarkdown(setMarkdown)
   }, [])
@@ -59,9 +59,17 @@ const App = () => {
           <source src="video-sample.mp4" />
         </video>
         <div className="action-row">
-          <button onClick={handleClick} className="control-button">
-            {isPictureInPictureActive ? 'Disable' : 'Enable'} Picture in Picture
-          </button>
+          {isPictureInPictureAvailable && (
+            <button onClick={handleClick} className="control-button">
+              {isPictureInPictureActive ? 'Disable' : 'Enable'} Picture in
+              Picture
+            </button>
+          )}
+          {!isPictureInPictureAvailable && (
+            <p>
+              Picture in Picture feature API is not available in your browser.
+            </p>
+          )}
         </div>
         <ReactMarkdown source={markdown} renderers={{ code: CodeBlock }} />
       </div>
