@@ -15,7 +15,7 @@
   z-index: 1;
 }
 
-.nav > * {
+.nav > *:not(:last-child) {
   margin-right: 8px;
 }
 
