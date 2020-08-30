@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/DawChihLiou/react-use-pip/compare/v1.0.2...v1.1.0) (2020-08-30)
+
+
+### Features
+
+* **index.ts:** add webkit support ([961c3ee](https://github.com/DawChihLiou/react-use-pip/commit/961c3ee171469b8bf46dbb5423944d13e88b9cde))
+
 ## [1.0.2](https://github.com/DawChihLiou/react-use-pip/compare/v1.0.1...v1.0.2) (2020-08-30)
 
 
