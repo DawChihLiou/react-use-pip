@@ -4,6 +4,7 @@
   "description": "React hook for Picture in Picture",
   "author": "DawChihLiou",
   "license": "MIT",
+  "homepage": "https://dawchihliou.github.io/react-use-pip/",
   "repository": "git@github.com:DawChihLiou/react-use-pip.git",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
@@ -11,6 +12,13 @@
   "engines": {
     "node": ">=10"
   },
+  "keywords": [
+    "react-use-pip",
+    "react",
+    "hooks",
+    "typescript",
+    "picture-in-picture"
+  ],
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
