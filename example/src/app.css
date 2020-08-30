@@ -1,0 +1,46 @@
+.app {
+  max-width: 936px;
+  margin: 0 auto;
+  padding: 16px 0;
+}
+
+.banner {
+  width: 75%;
+  display: block;
+  margin: 0 auto;
+}
+
+.action-row {
+  display: flex;
+  margin-top: 16px;
+  margin-bottom: 48px;
+  justify-content: center;
+}
+
+.control-button {
+  margin: 0 auto;
+  padding: 24px 48px;
+  border: 0;
+  border-radius: 4px;
+  font-size: 1.3em;
+  font-weight: 700;
+  box-shadow: 0.75em 0.75em #000;
+  background-color: #34495e;
+  color: #fff;
+}
+
+.control-button:hover {
+  box-shadow: 0.5em 0.5em #000;
+  transform: translate(0.25em, 0.25em);
+  outline: none;
+}
+
+.control-button:active {
+  transform: translate(0.5em, 0.5em);
+  box-shadow: 0 0 #000;
+  outline: none;
+}
+.control-button:visited,
+.control-button:focus {
+  outline: none;
+}
