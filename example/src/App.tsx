@@ -2,6 +2,7 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import usePictureInPicture from 'react-use-pip'
 import CodeBlock from './CodeBlock'
+import { VscGithub } from 'react-icons/vsc'
 import './app.css'
 
 async function fetchMarkdown(
@@ -30,24 +31,34 @@ const App = () => {
   }, [])
 
   return (
-    <div className="app">
-      <a href="https://github.com/DawChihLiou/react-use-pip">
-        <img
-          className="banner"
-          src={`${process.env.PUBLIC_URL}/banner.png`}
-          alt="rect-use-pip"
-        />
-      </a>
-      <video ref={videoRef} autoPlay muted controls loop width="100%">
-        <source src="video-sample.mp4" />
-      </video>
-      <div className="action-row">
-        <button onClick={handleClick} className="control-button">
-          {isPictureInPictureActive ? 'Disable' : 'Enable'} Picture in Picture
-        </button>
+    <>
+      <nav className="nav">
+        <a href="/">
+          <img
+            className="logo"
+            src={`${process.env.PUBLIC_URL}/logo-light-32x32.png`}
+            alt="react-use-pip-logo"
+          />
+        </a>
+        <a href="/" className="title">
+          <h3>react-use-pip</h3>
+        </a>
+        <a href="https://github.com/DawChihLiou/react-use-pip">
+          <VscGithub size={24} />
+        </a>
+      </nav>
+      <div className="app">
+        <video ref={videoRef} autoPlay muted controls loop width="100%">
+          <source src="video-sample.mp4" />
+        </video>
+        <div className="action-row">
+          <button onClick={handleClick} className="control-button">
+            {isPictureInPictureActive ? 'Disable' : 'Enable'} Picture in Picture
+          </button>
+        </div>
+        <ReactMarkdown source={markdown} renderers={{ code: CodeBlock }} />
       </div>
-      <ReactMarkdown source={markdown} renderers={{ code: CodeBlock }} />
-    </div>
+    </>
   )
 }
 

@@ -18,3 +18,12 @@ code {
   border-radius: 2px;
   font-size: 0.9em;
 }
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a > * {
+  vertical-align: middle;
+}

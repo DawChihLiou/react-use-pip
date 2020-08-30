@@ -1,13 +1,29 @@
 .app {
   max-width: 936px;
   margin: 0 auto;
-  padding: 16px 0;
+  padding: 16px 16px;
 }
 
-.banner {
-  width: 75%;
-  display: block;
-  margin: 0 auto;
+.nav {
+  padding: 16px 16px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e2e2;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.nav > * {
+  margin-right: 8px;
+}
+
+.title {
+  flex-grow: 1;
+}
+
+.title > * {
+  margin: 0;
 }
 
 .action-row {
@@ -37,10 +53,28 @@
 
 .control-button:active {
   transform: translate(0.5em, 0.5em);
-  box-shadow: 0 0 #000;
+  box-shadow: 0.25em 0.25em #000;
   outline: none;
 }
 .control-button:visited,
 .control-button:focus {
   outline: none;
+}
+
+@media screen and (max-width: 576px) {
+  .control-button {
+    padding: 24px 48px;
+    font-size: 1em;
+    font-weight: 700;
+  }
+  .control-button:hover {
+    box-shadow: 0.75em 0.75em #000;
+    transform: translate(0, 0);
+    outline: none;
+  }
+  .control-button:active {
+    transform: translate(0.5em, 0.5em);
+    box-shadow: 0.25em 0.25em #000;
+    outline: none;
+  }
 }
