@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/DawChihLiou/react-use-pip/compare/v1.1.0...v1.2.0) (2020-08-30)
+
+
+### Features
+
+* **index:** add isPictureInPictureAvailable in return object ([4c6f3c7](https://github.com/DawChihLiou/react-use-pip/commit/4c6f3c72fde05b8449d6e1d648ca438e41ba436b))
+
 # [1.1.0](https://github.com/DawChihLiou/react-use-pip/compare/v1.0.2...v1.1.0) (2020-08-30)
 
 
