@@ -2,7 +2,7 @@
 
 # react-use-pip
 
-> React hook for Picture in Picture
+React hook for Picture in Picture
 
 ## Features
 

@@ -9,19 +9,22 @@ body {
   line-height: 1.5;
 }
 
+pre {
+  background: #f6f8fa !important;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-  background: rgb(29, 31, 33);
-  color: rgb(197, 200, 198);
-  padding: 2px 4px;
+  background: #f6f8fa;
+  color: #000;
+  padding: 2px 6px;
   border-radius: 2px;
-  font-size: 0.9em;
+  font-size: 0.9em !important;
 }
 
 a {
   color: #000;
-  text-decoration: none;
 }
 
 a > * {
