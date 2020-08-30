@@ -7,7 +7,7 @@ import './app.css'
 async function fetchMarkdown(
   saveMarkdown: Dispatch<SetStateAction<string | undefined>>
 ): Promise<void> {
-  const response = await fetch(`${process.env.PUBLIC_URL}DOC.md`)
+  const response = await fetch(`${process.env.PUBLIC_URL}/DOC.md`)
   const text = await response.text()
   saveMarkdown(text)
 }
@@ -34,7 +34,7 @@ const App = () => {
       <a href="https://github.com/DawChihLiou/react-use-pip">
         <img
           className="banner"
-          src={`${process.env.PUBLIC_URL}banner.png`}
+          src={`${process.env.PUBLIC_URL}/banner.png`}
           alt="rect-use-pip"
         />
       </a>
