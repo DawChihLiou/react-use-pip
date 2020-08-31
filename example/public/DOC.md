@@ -7,7 +7,7 @@
 
 React hook for Picture in Picture.
 
-Picture in Picture is a on going [W3C draft](https://w3c.github.io/picture-in-picture/) so that websites to create a floating window to continue playing media while users interact with other content or sites. Before shipping your application with the feature, please be aware that **the feature API is not wildly supported yet across browsers** and the implementation status can be found [here](https://github.com/w3c/picture-in-picture/blob/master/implementation-status.md). Please also see [Can I Use](https://caniuse.com/#feat=picture-in-picture) for more information.
+Picture in Picture is a on going [W3C draft](https://w3c.github.io/picture-in-picture/) so that websites to create a floating window to continue playing media while users interact with other content or sites. Before shipping your application with the feature, please be aware that **the feature API is not widely supported yet across browsers** and the implementation status can be found [here](https://github.com/w3c/picture-in-picture/blob/master/implementation-status.md). Please also see [Can I Use](https://caniuse.com/#feat=picture-in-picture) for more information.
 
 ## Features
 
