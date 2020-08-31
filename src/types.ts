@@ -1,5 +1,9 @@
 import { Dispatch, MutableRefObject, SetStateAction } from 'react'
 
+/**
+ * Browswer API support
+ * Reference: https://w3c.github.io/picture-in-picture/#idl-index
+ */
 export interface PictureInPictureWindow {
   readonly width: number
   readonly height: number
@@ -37,6 +41,26 @@ export interface ExtendedDocumentOrShadowRoot extends DocumentOrShadowRoot {
   readonly pictureInPictureElement: Element
 }
 
+export interface PictureInPictureEventInit extends EventModifierInit {
+  pictureInPictureWindow: PictureInPictureWindow
+}
+
+export interface PictureInPictureEvent extends Event {
+  readonly pictureInPictureWindow: PictureInPictureWindow
+}
+
+export declare var PictureInPictureEvent: {
+  prototype: PictureInPictureEvent
+  new (
+    type: string,
+    eventInitDict?: PictureInPictureEventInit
+  ): PictureInPictureEvent
+  readonly pictureInPictureWindow: PictureInPictureWindow
+}
+
+/**
+ * react-use-pip API
+ */
 export type VideoRefType = MutableRefObject<ExtendedHTMLVideoElement | null>
 
 export interface usePictureInPictureOptions {
