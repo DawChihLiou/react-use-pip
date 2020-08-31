@@ -59,11 +59,16 @@ const App = () => {
         <video ref={videoRef} autoPlay muted controls loop width="100%">
           <source src="video-sample.mp4" />
         </video>
+        <h3>
+          Try the React Hook yourself
+          <span role="img" aria-label="emoji pointing down">
+            👇
+          </span>
+        </h3>
         <div className="action-row">
           {isPictureInPictureAvailable && (
             <button onClick={handleClick} className="control-button">
-              {isPictureInPictureActive ? 'Disable' : 'Enable'} Picture in
-              Picture
+              {isPictureInPictureActive ? 'Exit' : 'Enter'} Picture in Picture
             </button>
           )}
           {!isPictureInPictureAvailable && (
