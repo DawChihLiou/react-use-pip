@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/DawChihLiou/react-use-pip/compare/v1.2.0...v1.3.0) (2020-08-31)
+
+
+### Features
+
+* **types.ts:** add picture in picture event type ([a373ed3](https://github.com/DawChihLiou/react-use-pip/commit/a373ed39aa7a23dc8c102d6bfdd93b91f6897e73))
+
 # [1.2.0](https://github.com/DawChihLiou/react-use-pip/compare/v1.1.0...v1.2.0) (2020-08-30)
 
 
