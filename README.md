@@ -1,6 +1,9 @@
 [![react-use-pip](./banner.png)](https://github.com/DawChihLiou/react-use-pip)
 
-[![NPM](https://img.shields.io/npm/v/react-use-pip.svg)](https://www.npmjs.com/package/react-use-pip) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![NPM](https://img.shields.io/npm/v/react-use-pip.svg)](https://www.npmjs.com/package/react-use-pip)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Package size](https://badgen.net/bundlephobia/minzip/react-use-pip)](https://bundlephobia.com/result?p=react-use-pip)
+[![License](https://badgen.net/npm/license/swr)](https://badgen.net/npm/license/react-use-pip)
 
 # react-use-pip
 
@@ -10,7 +13,7 @@ Picture in Picture is a on going [W3C draft](https://w3c.github.io/picture-in-pi
 
 ## Features
 
-- Easy to use.
+- Lightweight and easy to use.
 - Picture in picture browser support detection.
 - TypeScript friendly. react-use-pip hook is written in TypeScript.
 - Picture in Picture mode control with your own custom Event handlers.
