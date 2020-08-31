@@ -5,6 +5,7 @@ import isPictureInPictureSupported, {
 } from './libs/is-picture-in-picture-supported'
 import {
   ExtendedDocument,
+  ExtendedHTMLVideoElement,
   usePictureInPictureOptions,
   usePictureInPictureReturnType,
   VideoRefType,
@@ -45,10 +46,11 @@ export default function usePictureInPicture(
   ])
 
   useEffect(() => {
+    checkAvailability(videoRef.current)
+
     if (videoRef.current === null) {
       return
     }
-
     setIsPictureInPictureAvailable(
       (isWebkitPictureInPictureSupported(videoRef.current) ||
         isPictureInPictureSupported()) &&
@@ -106,6 +108,42 @@ export default function usePictureInPicture(
   }
 }
 
+function checkAvailability(video: ExtendedHTMLVideoElement | null) {
+  /**
+   * As of now, picutre in picture is only available for "video" element.
+   */
+  if (video === null) {
+    console.warn(
+      'vieoRef is not referencing to an element. Please pass the videoRef as ref in a video element.'
+    )
+  }
+  if (video && video.nodeName.toLocaleLowerCase() !== 'video') {
+    console.warn(
+      `videoRef is currently referencing to a ${video.nodeName} element. Plese pass it as ref in a video element.`
+    )
+  }
+  /**
+   * Safari^9.0 has a none-standard pip api. "isWebkitPictureInPictureSupported" is to support Safari.
+   */
+  if (
+    video &&
+    !isPictureInPictureSupported() &&
+    !isWebkitPictureInPictureSupported(video)
+  ) {
+    console.warn('Picture in picture is not supported in your browser.')
+  }
+  if (video && isPictureInPictureDisabled(video)) {
+    console.warn(
+      'Picture in picture is disabled in your browser. If you want to activate the feature, please enable it in the browser settings.'
+    )
+  }
+  if (video && isWebkitPictureInPictureSupported(video)) {
+    console.warn(
+      'Your browser supports a none-standard Picture in picture API.'
+    )
+  }
+}
+
 async function handlePictureInPicture(
   video: VideoRefType,
   isActive: boolean,
@@ -113,33 +151,8 @@ async function handlePictureInPicture(
   onExitPictureInPictureError: usePictureInPictureOptions['onExitPictureInPictureError']
 ): Promise<void> {
   if (video.current === null) {
-    console.warn(
-      'vieoRef is not referencing to an element. Please pass the videoRef as ref in a video element.'
-    )
     return
   }
-  if (video.current.nodeName.toLocaleLowerCase() !== 'video') {
-    console.warn(
-      `videoRef is currently referencing to a ${video.current.nodeName} element. Plese pass it as ref in a video element.`
-    )
-    return
-  }
-  /**
-   * Safari^9.0 has a different pip api. "isWebkitPictureInPictureSupported" is to support Safari.
-   */
-  if (
-    !isPictureInPictureSupported() &&
-    !isWebkitPictureInPictureSupported(video.current)
-  ) {
-    console.warn('Picture in picture is not supported in your browser.')
-  }
-
-  if (isPictureInPictureDisabled(video.current)) {
-    console.warn(
-      'Picture in picture is disabled in your browser. If you want to activate the feature, please enable it in the browser settings.'
-    )
-  }
-
   if (isActive) {
     try {
       if (isWebkitPictureInPictureSupported(video.current)) {
