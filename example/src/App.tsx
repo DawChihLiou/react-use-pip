@@ -40,16 +40,17 @@ const App = () => {
   return (
     <>
       <nav className="nav">
-        <a href="/">
+        <a href={process.env.PUBLIC_URL}>
           <img
             className="logo"
             src={`${process.env.PUBLIC_URL}/logo-light-64x64.png`}
             alt="react-use-pip-logo"
           />
         </a>
-        <a href="/" className="title">
+        <a href={process.env.PUBLIC_URL} className="title">
           <h3>react-use-pip</h3>
         </a>
+        <div className="tools"></div>
         <a href="https://github.com/DawChihLiou/react-use-pip">
           <VscGithub size={24} />
         </a>

@@ -20,12 +20,15 @@
 }
 
 .title {
-  flex-grow: 1;
   text-decoration: none;
 }
 
 .title > * {
   margin: 0;
+}
+
+.tools {
+  flex-grow: 1;
 }
 
 .action-row {
