@@ -11,7 +11,6 @@ export function isWebkitPictureInPictureSupported(
     typeof (video as any).webkitSetPresentationMode === 'function'
   )
 }
-
 export default function isPictureInPictureSupported(): boolean {
   return (document as ExtendedDocument).pictureInPictureEnabled
 }
