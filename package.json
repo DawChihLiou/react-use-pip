@@ -86,10 +86,7 @@
     "typescript": "^3.7.5"
   },
   "files": [
-    "dist",
-    "CHANGELOG.md",
-    "package.json",
-    "yarn.lock"
+    "dist"
   ],
   "config": {
     "commitizen": {
