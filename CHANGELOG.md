@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/DawChihLiou/react-use-pip/compare/v1.3.0...v1.3.1) (2020-09-01)
+
+
+### Bug Fixes
+
+* trigger release ([0d5211d](https://github.com/DawChihLiou/react-use-pip/commit/0d5211d1071f33882c369bb5b461fff0d3951569))
+
 # [1.3.0](https://github.com/DawChihLiou/react-use-pip/compare/v1.2.0...v1.3.0) (2020-08-31)
 
 
