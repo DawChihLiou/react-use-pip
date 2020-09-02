@@ -8,7 +8,7 @@ import React, {
 import ReactMarkdown from 'react-markdown'
 import usePictureInPicture from 'react-use-pip'
 import CodeBlock from './CodeBlock'
-import { VscGithub } from 'react-icons/vsc'
+import { VscGithubInverted } from 'react-icons/vsc'
 import './app.css'
 import { ExtendedHTMLVideoElement } from '../../dist/types'
 
@@ -41,18 +41,27 @@ const App = () => {
     <>
       <nav className="nav">
         <a href={process.env.PUBLIC_URL}>
-          <img
-            className="logo"
-            src={`${process.env.PUBLIC_URL}/logo-light-64x64.png`}
-            alt="react-use-pip-logo"
-          />
+          <picture className="picture">
+            <source
+              media="(prefers-color-scheme: dark)"
+              srcSet={`${process.env.PUBLIC_URL}/logo-dark-64x64.png`}
+            />
+            <img
+              className="logo"
+              src={`${process.env.PUBLIC_URL}/logo-light-64x64.png`}
+              alt="react-use-pip-logo"
+            />
+          </picture>
         </a>
         <a href={process.env.PUBLIC_URL} className="title">
           <h3>react-use-pip</h3>
         </a>
         <div className="tools"></div>
-        <a href="https://github.com/DawChihLiou/react-use-pip">
-          <VscGithub size={24} />
+        <a
+          href="https://github.com/DawChihLiou/react-use-pip"
+          className="icon-link"
+        >
+          <VscGithubInverted size={24} />
         </a>
       </nav>
       <div className="app">

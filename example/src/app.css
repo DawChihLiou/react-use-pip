@@ -8,8 +8,8 @@
   padding: 16px 16px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #e2e2e2;
-  background-color: #fff;
+  border-bottom: 1px solid var(--divider-color);
+  background-color: var(--bg-color);
   position: sticky;
   top: 0;
   z-index: 1;
@@ -19,7 +19,12 @@
   margin-right: 8px;
 }
 
+.nav .picture {
+  line-height: initial;
+}
+
 .title {
+  color: var(--font-color);
   text-decoration: none;
 }
 
@@ -40,6 +45,10 @@
 
 .logo {
   width: 32px;
+}
+
+.icon-link {
+  color: var(--font-color);
 }
 
 .control-button {
