@@ -5,25 +5,31 @@ import {
   vscDarkPlus,
 } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
+const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
 interface CodeBlockProps {
   language?: string
   value: string
 }
 
 const CodeBlock: React.FC<CodeBlockProps> = ({ language, value }) => {
-  const initialScheme = window.matchMedia('(prefers-color-scheme: dark)')
   const [scheme, setScheme] = useState<'dark' | 'light'>(
-    initialScheme.matches ? 'dark' : 'light'
+    prefersColorScheme.matches ? 'dark' : 'light'
   )
+  const schemeHandler = (event: MediaQueryListEvent) => {
+    const nextScheme = event.matches ? 'dark' : 'light'
+    setScheme(nextScheme)
+  }
   const style = scheme === 'dark' ? vscDarkPlus : prism
+
   useEffect(() => {
-    window
-      .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', (event) => {
-        const nextScheme = event.matches ? 'dark' : 'light'
-        setScheme(nextScheme)
-      })
+    if (prefersColorScheme.addEventListener) {
+      prefersColorScheme.addEventListener('change', schemeHandler)
+    } else {
+      prefersColorScheme.addListener(schemeHandler)
+    }
   }, [])
+
   return (
     <SyntaxHighlighter language={language} style={style}>
       {value}
