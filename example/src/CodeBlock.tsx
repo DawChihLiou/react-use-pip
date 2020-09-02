@@ -28,6 +28,13 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, value }) => {
     } else {
       prefersColorScheme.addListener(schemeHandler)
     }
+    return () => {
+      if (prefersColorScheme.removeEventListener) {
+        prefersColorScheme.removeEventListener('change', schemeHandler)
+      } else {
+        prefersColorScheme.removeListener(schemeHandler)
+      }
+    }
   }, [])
 
   return (
