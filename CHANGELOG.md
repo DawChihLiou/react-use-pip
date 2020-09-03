@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/DawChihLiou/react-use-pip/compare/v1.4.0...v1.4.1) (2020-09-03)
+
+
+### Bug Fixes
+
+* **ci.yml:** remove duplicated npm publish in release config ([830c23c](https://github.com/DawChihLiou/react-use-pip/commit/830c23cacca5ed6bab1c3133ba7a32e6e7e22ef5))
+
 # [1.4.0](https://github.com/DawChihLiou/react-use-pip/compare/v1.3.1...v1.4.0) (2020-09-03)
 
 
