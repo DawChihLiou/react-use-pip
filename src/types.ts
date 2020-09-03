@@ -1,35 +1,61 @@
 import { Dispatch, MutableRefObject, SetStateAction } from 'react'
 
 /**
- * Browswer API support
- * Reference: https://w3c.github.io/picture-in-picture/#idl-index
+ * Browswer API support. Picture in Picture API is not yet supported in TypeScript.
+ * First Public Working Draft: https://www.w3.org/TR/picture-in-picture/
  */
-export interface PictureInPictureWindow {
+
+/**
+ * Reference:
+ * https://www.w3.org/TR/picture-in-picture/#interface-picture-in-picture-window
+ */
+interface PictureInPictureWindow extends EventTarget {
   readonly width: number
   readonly height: number
-  onresize<K extends keyof GlobalEventHandlersEventMap>(
-    this: GlobalEventHandlers,
-    ev: GlobalEventHandlersEventMap[K]
-  ): void
+  onresize: ((this: HTMLVideoElement, ev: Event) => any) | null
 }
-
+/**
+ * Reference:
+ * https://www.w3.org/TR/picture-in-picture/#htmlvideoelement-extensions
+ */
 export interface ExtendedHTMLVideoElement extends HTMLVideoElement {
-  requestPictureInPicture(): Promise<PictureInPictureWindow>
-
-  onenterpictureinpicture<K extends keyof GlobalEventHandlersEventMap>(
-    this: GlobalEventHandlers,
-    ev: GlobalEventHandlersEventMap[K]
-  ): void
-
-  onleavepictureinpicture<K extends keyof GlobalEventHandlersEventMap>(
-    this: GlobalEventHandlers,
-    ev: GlobalEventHandlersEventMap[K]
-  ): void
-
   autoPictureInPicture: boolean
   disablePictureInPicture: boolean
-}
+  requestPictureInPicture(): Promise<PictureInPictureWindow>
+  onenterpictureinpicture:
+    | ((this: HTMLVideoElement, ev: EnterPictureInPictureEvent) => any)
+    | null
+  onleavepictureinpicture: ((this: HTMLVideoElement, ev: Event) => any) | null
 
+  addEventListener<K extends keyof HTMLVideoElementEventMap>(
+    type: K,
+    listener: (this: HTMLVideoElement, ev: HTMLVideoElementEventMap[K]) => any,
+    options?: boolean | AddEventListenerOptions
+  ): void
+  addEventListener(
+    type: string,
+    listener: EventListenerOrEventListenerObject,
+    options?: boolean | AddEventListenerOptions
+  ): void
+  removeEventListener<K extends keyof HTMLVideoElementEventMap>(
+    type: K,
+    listener: (this: HTMLVideoElement, ev: HTMLVideoElementEventMap[K]) => any,
+    options?: boolean | EventListenerOptions
+  ): void
+  removeEventListener(
+    type: string,
+    listener: EventListenerOrEventListenerObject,
+    options?: boolean | EventListenerOptions
+  ): void
+}
+interface HTMLVideoElementEventMap extends HTMLElementEventMap {
+  enterpictureinpicture: EnterPictureInPictureEvent
+  leavepictureinpicture: Event
+}
+/**
+ * Reference:
+ * https://www.w3.org/TR/picture-in-picture/#document-extensions
+ */
 export interface ExtendedDocument
   extends Document,
     ExtendedDocumentOrShadowRoot {
@@ -37,25 +63,35 @@ export interface ExtendedDocument
   exitPictureInPicture(): Promise<void>
 }
 
-export interface ExtendedDocumentOrShadowRoot extends DocumentOrShadowRoot {
-  readonly pictureInPictureElement: Element
+declare var ExtendedDocument: {
+  prototype: ExtendedDocument
+  new (): ExtendedDocument
 }
-
-export interface PictureInPictureEventInit extends EventModifierInit {
+/**
+ * Reference:
+ * https://www.w3.org/TR/picture-in-picture/#documentorshadowroot-extension
+ */
+interface ExtendedDocumentOrShadowRoot extends DocumentOrShadowRoot {
+  readonly pictureInPictureElement?: Element
+}
+/**
+ * Reference:
+ * https://www.w3.org/TR/picture-in-picture/#event-types
+ */
+interface EnterPictureInPictureEventInit extends EventInit {
   pictureInPictureWindow: PictureInPictureWindow
 }
 
-export interface PictureInPictureEvent extends Event {
+export interface EnterPictureInPictureEvent extends Event {
   readonly pictureInPictureWindow: PictureInPictureWindow
 }
 
-export declare var PictureInPictureEvent: {
-  prototype: PictureInPictureEvent
+declare var EnterPictureInPictureEvent: {
+  prototype: EnterPictureInPictureEvent
   new (
     type: string,
-    eventInitDict?: PictureInPictureEventInit
-  ): PictureInPictureEvent
-  readonly pictureInPictureWindow: PictureInPictureWindow
+    eventInitDict: EnterPictureInPictureEventInit
+  ): EnterPictureInPictureEvent
 }
 
 /**
