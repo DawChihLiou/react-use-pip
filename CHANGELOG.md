@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/DawChihLiou/react-use-pip/compare/v1.3.1...v1.4.0) (2020-09-03)
+
+
+### Features
+
+* **types.ts:** more comprehensive typings ([ab02935](https://github.com/DawChihLiou/react-use-pip/commit/ab02935ea282a342b42d0ca74942d73ad4da4073))
+
 ## [1.3.1](https://github.com/DawChihLiou/react-use-pip/compare/v1.3.0...v1.3.1) (2020-09-01)
 
 
