@@ -29,7 +29,7 @@ npm install --save react-use-pip
 Or with Yarn
 
 ```bash
-yarn add react-us-pip
+yarn add react-use-pip
 ```
 
 ## Quick Start
