@@ -1,9 +1,10 @@
 [![react-use-pip](./banner.png)](https://github.com/DawChihLiou/react-use-pip)
 
-[![NPM](https://img.shields.io/npm/v/react-use-pip.svg)](https://www.npmjs.com/package/react-use-pip)
+[![npm](https://img.shields.io/npm/v/react-use-pip.svg)](https://www.npmjs.com/package/react-use-pip)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![Package size](https://badgen.net/bundlephobia/minzip/react-use-pip)](https://bundlephobia.com/result?p=react-use-pip)
 [![License](https://badgen.net/npm/license/swr)](https://badgen.net/npm/license/react-use-pip)
+![npm downloads](https://img.shields.io/npm/dm/react-use-pip?color=66CDAA)
 
 # react-use-pip
 
