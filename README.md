@@ -19,6 +19,10 @@ Picture in Picture is a on going [W3C draft](https://w3c.github.io/picture-in-pi
 - TypeScript friendly. react-use-pip hook is written in TypeScript.
 - Picture in Picture mode control with your own custom Event handlers.
 
+## Support
+
+- `react-use-pip` supports React versions from 16.9.0 up. It also supports React 17 and React 18.
+
 ## Install
 
 In your project directory, run
