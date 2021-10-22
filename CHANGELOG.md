@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/DawChihLiou/react-use-pip/compare/v1.4.1...v1.5.0) (2021-10-22)
+
+
+### Features
+
+* react 17 & 18 support ([094bc0d](https://github.com/DawChihLiou/react-use-pip/commit/094bc0d951e666298e2b7a978c1accec2eb88e9b))
+
 ## [1.4.1](https://github.com/DawChihLiou/react-use-pip/compare/v1.4.0...v1.4.1) (2020-09-03)
 
 
